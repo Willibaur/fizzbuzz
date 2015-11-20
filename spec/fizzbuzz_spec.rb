@@ -13,7 +13,16 @@ describe 'fizzbuzz' do
     expect(fizzbuzz(15)).to eq 'fizzbuzz'
   end
 
-  it 'returns #{number} when passed non-divisible number by 3 or 5'       do
-      expect(fizzbuzz(8)).to eq 8
+  # it 'returns #{number} when passed non-divisible number by 3 or 5'       do
+  #     expect(fizzbuzz(8)).to eq 8
+  # end
+
+  it 'returns #{number} when passed non-divisible numbers' do
+    array = *(1..100)
+    array = array.select {|value| value % 5 != 0 && value % 3 != 0 }
+    array.each do |value|
+        expect(fizzbuzz(value)).to eq value
+      end
+
   end
 end
